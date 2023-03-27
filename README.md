@@ -27,11 +27,15 @@ firebase_admin.initialize_app(cred)
 # Create a Firestore client
 db = firestore.client()
 
-# Apply sanitization to content
+# Apply sanitization
+
+# Define the data to be added to the collection
 contentString = input("Enter the blog content:\n\n")
 cleanHTMLContent = bleach.clean(
 	contentString,
-	tags={"p", "div", "br"}
+	# Define acceptable tags and attributes
+	tags=["p", "br", "img", "a"],
+	attributes=["href", "src", "alt"]
 )
 
 durationNumber = int(input("\nEnter the duration:\n\n"))
@@ -46,7 +50,7 @@ data = {
 	"title": titleString
 }
 
-# Add the data to a new document in the "blogs" collection
+# Add the data to a new document in the "users" collection
 db.collection("blogs").add(data)
 
 print("\nData added to Firestore successfully!")
