@@ -10,6 +10,9 @@
 ## Making a blog post
 For posting blogs to my own website, it felt awkward to have some authentication required POST API endpoint for me to add blogs. Since the Firebase Admin SDK exists, I simply have a local Python script shown below that loads the JSON private key file that prompts for things like title, content, etc. which I use to send data.
 
+## Why blogs?
+I think making blog style content is super useful. The inspiration comes from sites like Medium. So basically, I want a place to openly share my opinions and notes about useful tips and uses of technologies and skills in software engineering for my own keepsake and for others to benefit from!
+
 ```python
 import firebase_admin
 from firebase_admin import credentials
