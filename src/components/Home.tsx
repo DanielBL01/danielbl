@@ -17,24 +17,64 @@ function Home(): JSX.Element {
       </div>
       <div>
         <p>
-          Hi! I'm Daniel, a mechatronics engineering student at the University
-          of Waterloo with an option in computing set to graduate April 2024.
+          Hi! I'm Daniel, a mechatronics engineering student at the
+          <a
+            className="hover:font-extrabold"
+            href="https://uwaterloo.ca/"
+            target="_blank"
+          >
+            {" "}
+            University of Waterloo{" "}
+          </a>
+          with an option in computing set to graduate April 2024.
         </p>
         <br />
         <p className="text-xl">Past</p>
         <p>
           Previously, I've interned as a backend developer and software engineer
-          at Pepperdata, IBM and Lumenix. Since then, I've had the opportunity
-          to work many languages and frameworks. Through many experiences, I
-          learned to be efficient in different development environments such as
-          startups, being able to rapidly developing applications to production
-          and at larger companies, extending more established codebases.
+          at{" "}
+          <a
+            className="hover:font-extrabold"
+            href="https://www.pepperdata.com/"
+            target="_blank"
+          >
+            Pepperdata
+          </a>
+          ,{" "}
+          <a
+            className="hover:font-extrabold"
+            href="https://www.ibm.com/ca-en"
+            target="_blank"
+          >
+            IBM
+          </a>{" "}
+          and{" "}
+          <a
+            className="hover:font-extrabold"
+            href="https://www.aimsplatform.io/?gclid=CjwKCAjwmJeYBhAwEiwAXlg0Ae5VO23h_9W7WayJKb2nOKiBHgcVsDoC1ta6nTBTtoiKuLeN2GF1axoCgH4QAvD_BwE"
+            target="_blank"
+          >
+            Lumenix
+          </a>
+          . Since then, I've had the opportunity to work many languages and
+          frameworks. Through many experiences, I learned to be efficient in
+          different development environments such as startups, being able to
+          rapidly developing applications to production and at larger companies,
+          extending more established codebases.
         </p>
         <br />
         <p className="text-xl">Now</p>
         <p>
           I'm currently doing my final internship as a software engineer intern
-          at Databricks in San Francisco.
+          at{" "}
+          <a
+            className="hover:font-extrabold"
+            href="https://www.databricks.com/"
+            target="_blank"
+          >
+            Databricks
+          </a>{" "}
+          in San Francisco.
         </p>
         <hr className="mt-2 mb-4" />
         <div>

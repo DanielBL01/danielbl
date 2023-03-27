@@ -54,7 +54,7 @@ function BlogPost(): JSX.Element {
       <p className="inline"> • {blog.duration} min read</p>
       <hr className="mt-2" />
       <br />
-      <p>{ReactHtmlParser(DOMPurify.sanitize(blog.content))}</p>
+      {ReactHtmlParser(DOMPurify.sanitize(blog.content))}
     </div>
   );
 }

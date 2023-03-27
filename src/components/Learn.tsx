@@ -9,6 +9,7 @@ function Learn(): JSX.Element {
       <li>Designing Data-Intensive Applications (Book)</li>
       <li>System Design Interview (Book)</li>
       <li>Elements of Programming Interviews in Java (Book)</li>
+      <li>So Good They Can't Ignore You: Why Skills Trump Passion in the Quest for Work You Love (Book)</li>
     </div>
   );
 }

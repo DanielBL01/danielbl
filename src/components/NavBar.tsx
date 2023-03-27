@@ -14,16 +14,16 @@ function NavBar({ darkMode, onClick }: Props): JSX.Element {
       <br />
       <div className="flex justify-between items-center mb-8">
         <ul className="list-none">
-          <li className="inline-block pr-6 py-2 hover:underline">
+          <li className="inline-block pr-6 py-2 hover:font-extrabold">
             <Link to="/">Home</Link>
           </li>
-          <li className="inline-block px-6 py-2 hover:underline">
+          <li className="inline-block px-6 py-2 hover:font-extrabold">
             <Link to="/about">About</Link>
           </li>
-          <li className="inline-block px-6 py-2 hover:underline">
+          <li className="inline-block px-6 py-2 hover:font-extrabold">
             <Link to="/learn">Learn</Link>
           </li>
-          <li className="inline-block pl-6 py-2 hover:underline">
+          <li className="inline-block pl-6 py-2 hover:font-extrabold">
             <Link to="/blog">Blog</Link>
           </li>
         </ul>
