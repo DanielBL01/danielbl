@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=PT+Serif&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Lato", sans-serif;
+  font-family: "PT Serif", serif;
+}
+
+p {
+  @apply text-gray-700 dark:text-white;
+}
+
+li {
+  @apply text-gray-700 dark:text-white;
+}
+
+button {
+  @apply text-gray-700 dark:text-white;
+}
+
+span {
+  @apply text-gray-700 dark:text-white;
+}
+
+a {
+  @apply text-gray-700 dark:text-white;
+}
+
+div {
+  @apply text-gray-700 dark:text-white;
+}
+
+input {
+  @apply text-gray-700 dark:text-white;
+}
