@@ -72,5 +72,37 @@ I think making blog style content is super useful. The inspiration comes from si
 - Tailwind CSS
 - Vite (build)
 
-### Firebase
+### Cloud services
 I found that the firebase ecosystem is simple since it's basically a wrapper around Google Cloud Platform. Since all the services I need comes from Firebase (Firestore and Storage), I ended up going with Firebase Hosting since this portfolio site is backendless (no backend, makes only client-side API calls). Firebase Hosting is tailored towards static web apps like this and since all services are from Firebase, going with Firebase made things easy to manage since everything is on one platform.
+
+### Deployment
+After initializing a react project with Vite and developing the web application, run:
+
+```zsh
+npm run build
+```
+
+Vite will then build a "dist" folder for production. Since hosting is on Firebase, install the Firebase CLI and log in using the terminal. After that, you can initialize your firebase project at the root directory of your project.
+
+```zsh
+firebase init
+```
+
+In the configurations, make sure to point the public directory to the "dist" folder. Choose "yes" when configuring as a single-page-app since this is a React application. Choose "no" when prompted to overwrite the index.html file.
+
+Finally, after the Firebase initialization is complete, run:
+
+```zsh
+firebase deploy --only hosting
+```
+
+to deploy the web application. Simple!
+
+NOTE: Personally, in the configurations, I chose "no" to all the automated features since all it takes to push to production is simply rerunning:
+
+```zsh
+npm run build
+firebase deploy --only hosting
+```
+
+This means keeping the push mechanism to Github and to Firebase separate which I'm fine with.
