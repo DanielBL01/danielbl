@@ -20,40 +20,43 @@ from firebase_admin import firestore
 from datetime import datetime
 import bleach
 
-# Use a service account to authenticate the script
-cred = credentials.Certificate("/path/to/json/private/key/my-private-key.json")
+cred = credentials.Certificate("/path/to/private-key.json")
 firebase_admin.initialize_app(cred)
 
-# Create a Firestore client
 db = firestore.client()
 
-# Apply sanitization
+def main():
+	try:
+		contentString = input("Enter the blog content:\n\n")
+		cleanHTMLContent = bleach.clean(
+			contentString,
+			tags=["p", "br", "img", "a"],
+			attributes=["href", "src", "alt", "class"]
+		)
 
-# Define the data to be added to the collection
-contentString = input("Enter the blog content:\n\n")
-cleanHTMLContent = bleach.clean(
-	contentString,
-	# Define acceptable tags and attributes
-	tags=["p", "br", "img", "a"],
-	attributes=["href", "src", "alt"]
-)
+		durationNumber = int(input("\nEnter the duration:\n\n"))
 
-durationNumber = int(input("\nEnter the duration:\n\n"))
+		titleString = input("\nEnter the title:\n\n")
 
-titleString = input("\nEnter the title:\n\n")
+		overviewString = input("\nEnter the overview:\n\n")
 
-data = {
-	"author": "Daniel Lee",
-	"content": cleanHTMLContent,
-	"date": firestore.SERVER_TIMESTAMP,
-	"duration": durationNumber,
-	"title": titleString
-}
+		data = {
+			"author": "Daniel Lee",
+			"content": cleanHTMLContent,
+			"date": firestore.SERVER_TIMESTAMP,
+			"duration": durationNumber,
+			"title": titleString,
+			"overview": overviewString,
+		}
 
-# Add the data to a new document in the "users" collection
-db.collection("blogs").add(data)
+		db.collection("blogs").add(data)
 
-print("\nData added to Firestore successfully!")
+		print("\nData added to Firestore successfully!")
+	except KeyboardInterrupt:
+		print("Script has been interrupted")
+
+if __name__ == "__main__":
+	main()
 ```
 
 ## Technologies
