@@ -8,6 +8,7 @@ interface BlogMetaData {
   id: string;
   title: string;
   date: Timestamp;
+  overview: string;
 }
 
 function Blog(): JSX.Element {
@@ -24,6 +25,7 @@ function Blog(): JSX.Element {
             id: doc.id,
             title: data.title,
             date: data.date,
+            overview: data.overview,
           };
         });
         setBlogMetaData(documentsData);

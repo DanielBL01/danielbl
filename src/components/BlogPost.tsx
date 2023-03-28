@@ -12,6 +12,7 @@ interface Blog {
   date: Timestamp;
   title: string;
   duration: number;
+  overview: string;
 }
 
 function BlogPost(): JSX.Element {

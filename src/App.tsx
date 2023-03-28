@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Blog from "./components/Blog";
@@ -25,10 +25,10 @@ function App() {
   return (
     <div className="w-screen min-h-screen bg-white dark:bg-gray-700">
       <BrowserRouter>
-        <div className="max-w-lg mx-auto">
+        <div className="w-1/2 mx-auto">
           <NavBar darkMode={darkMode} onClick={handleToggle} />
         </div>
-        <div className="max-w-3xl mx-auto">
+        <div className="w-3/5 mx-auto">
           <div>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -36,6 +36,7 @@ function App() {
               <Route path="/learn" element={<Learn />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:blogID" element={<BlogPost />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>
         </div>
