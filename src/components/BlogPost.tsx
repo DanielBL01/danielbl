@@ -17,7 +17,7 @@ interface Blog {
 
 function BlogPost(): JSX.Element {
   const { blogID } = useParams<{ blogID: string }>();
-  
+
   if (!blogID) {
     return <div>Invalid Blog ID</div>;
   }
@@ -39,7 +39,7 @@ function BlogPost(): JSX.Element {
         console.error("Error fetching documents: ", error);
       }
     };
-    
+
     fetchDocuments();
   }, [blogID]);
 
@@ -51,7 +51,10 @@ function BlogPost(): JSX.Element {
     <div>
       <p className="text-3xl">{blog.title}</p>
       <p className="inline">{blog.author}</p>
-      <p className="inline italic"> {moment(blog.date.toDate()).format("MMMM Do YYYY")}</p>
+      <p className="inline italic">
+        {" "}
+        {moment(blog.date.toDate()).format("MMMM Do YYYY")}
+      </p>
       <p className="inline"> • {blog.duration} min read</p>
       <hr className="mt-2" />
       <br />
