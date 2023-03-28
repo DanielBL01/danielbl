@@ -7,6 +7,8 @@
 - Instead of vanilla CSS, using Tailwind CSS for more robust styling and implemented Dark and Light mode
 - Instead of CRA (Create React App), using Vite which has faster build times and simpler configurations.
 
+Overall, I also wanted to use more modern / different technologies I haven't used before (TypeScript, Vite, Firebase, Tailwind CSS)
+
 ## Making a blog post
 For posting blogs to my own website, it felt awkward to have some authentication required POST API endpoint for me to add blogs. Since the Firebase Admin SDK exists, I simply have a local Python script shown below that loads the JSON private key file that prompts for things like title, content, etc. which I use to send data.
 
@@ -66,5 +68,9 @@ if __name__ == "__main__":
 - Firebase
     - Cloud Firestore
     - Cloud Storage
+	- Firebase Hosting (deployment)
 - Tailwind CSS
-- Vite
+- Vite (build)
+
+### Firebase
+I found that the firebase ecosystem is simple since it's basically a wrapper around Google Cloud Platform. Since all the services I need comes from Firebase (Firestore and Storage), I ended up going with Firebase Hosting since this portfolio site is backendless (no backend, makes only client-side API calls). Firebase Hosting is tailored towards static web apps like this and since all services are from Firebase, going with Firebase made things easy to manage since everything is on one platform.
