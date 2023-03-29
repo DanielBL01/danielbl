@@ -20,7 +20,7 @@ function NavBar({ darkMode, onClick }: Props): JSX.Element {
             <Link to="/about">About</Link>
           </li>
           <li className="inline-block pr-12 py-2 hover:font-extrabold hover:italic">
-            <Link to="/learn">Learn</Link>
+            <Link to="/resume">Resume</Link>
           </li>
           <li className="inline-block py-2 hover:font-extrabold hover:italic">
             <Link to="/blog">Blog</Link>

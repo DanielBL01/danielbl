@@ -5,7 +5,7 @@ import Blog from "./components/Blog";
 import BlogPost from "./components/BlogPost";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
-import Learn from "./components/Learn";
+import Resume from "./components/Resume";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -33,7 +33,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/learn" element={<Learn />} />
+              <Route path="/resume" element={<Resume />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:blogID" element={<BlogPost />} />
               <Route path="*" element={<Navigate to="/" />} />
