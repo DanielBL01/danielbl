@@ -24,8 +24,22 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
+options = ["blogs", "test"]
+
 def main():
 	try:
+		collectionString = ''
+
+		input_message = "Pick an option:\n"
+
+		for index, item in enumerate(options):
+			input_message += f'{index+1}) {item}\n'
+
+		input_message += 'Your choice: '
+
+		while collectionString.lower() not in options:
+			collectionString = input(input_message)
+
 		contentString = input("Enter the blog content:\n\n")
 		cleanHTMLContent = bleach.clean(
 			contentString,
@@ -48,11 +62,11 @@ def main():
 			"overview": overviewString,
 		}
 
-		db.collection("blogs").add(data)
+		db.collection(collectionString).add(data)
 
-		print("\nData added to Firestore successfully!")
+		print(f"\nData added to {collectionString} collection Firestore successfully!")
 	except KeyboardInterrupt:
-		print("Script has been interrupted")
+		print("\n\nScript has been interrupted")
 
 if __name__ == "__main__":
 	main()
