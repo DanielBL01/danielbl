@@ -55,10 +55,10 @@ function BlogPosts({
               <Link to={`/blog/${blog.id}`} className="text-xl hover:underline">
                 {blog.title}
               </Link>
-              <p className="text-sm italic mt-2">
+              <p className="text-sm italic mt-2 font-extralight">
                 {moment(blog.date.toDate()).format("MMMM Do YYYY")}
               </p>
-              <p className="text-sm mb-5">
+              <p className="text-sm mb-5 font-extralight">
                 {blog.overview}
               </p>
             </li>

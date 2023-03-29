@@ -50,15 +50,14 @@ function BlogPost(): JSX.Element {
 
   return (
     <div>
-      <p className="text-3xl">{blog.title}</p>
-      <p className="inline">{blog.author}</p>
-      <p className="inline italic">
+      <p className="text-3xl mb-2">{blog.title}</p>
+      <p className="inline font-extralight">{blog.author}</p>
+      <p className="inline italic font-extralight">
         {" "}
         {moment(blog.date.toDate()).format("MMMM Do YYYY")}
       </p>
-      <p className="inline"> • {blog.duration} min read</p>
-      <hr className="mt-2" />
-      <br />
+      <p className="inline font-extralight"> • {blog.duration} min read</p>
+      <hr className="mt-2 mb-2" />
       {ReactHtmlParser(DOMPurify.sanitize(blog.content))}
     </div>
   );

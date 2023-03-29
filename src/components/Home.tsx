@@ -19,7 +19,7 @@ function Home(): JSX.Element {
         <p>
           Hi! I'm Daniel, a mechatronics engineering student at the
           <a
-            className="hover:font-extrabold"
+            className="hover:font-semibold"
             href="https://uwaterloo.ca/"
             target="_blank"
           >
@@ -34,7 +34,7 @@ function Home(): JSX.Element {
           Previously, I've interned as a backend developer and software engineer
           at{" "}
           <a
-            className="hover:font-extrabold"
+            className="hover:font-semibold"
             href="https://www.pepperdata.com/"
             target="_blank"
           >
@@ -42,7 +42,7 @@ function Home(): JSX.Element {
           </a>
           ,{" "}
           <a
-            className="hover:font-extrabold"
+            className="hover:font-semibold"
             href="https://www.ibm.com/ca-en"
             target="_blank"
           >
@@ -50,7 +50,7 @@ function Home(): JSX.Element {
           </a>{" "}
           and{" "}
           <a
-            className="hover:font-extrabold"
+            className="hover:font-semibold"
             href="https://www.aimsplatform.io/?gclid=CjwKCAjwmJeYBhAwEiwAXlg0Ae5VO23h_9W7WayJKb2nOKiBHgcVsDoC1ta6nTBTtoiKuLeN2GF1axoCgH4QAvD_BwE"
             target="_blank"
           >
@@ -68,7 +68,7 @@ function Home(): JSX.Element {
           I'm currently doing my final internship as a software engineer intern
           at{" "}
           <a
-            className="hover:font-extrabold"
+            className="hover:font-semibold"
             href="https://www.databricks.com/"
             target="_blank"
           >
