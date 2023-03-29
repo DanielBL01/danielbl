@@ -81,6 +81,66 @@ function Resume(): JSX.Element {
           </div>
         </div>
         <div className="mt-2">
+          <p className="text-lg">Projects</p>
+          <hr className="mt-1" />
+          <div className="ml-2">
+            <div className="mt-2">
+              <p className="text-base">Stock Price Discovery</p>
+              <p className="text-sm">
+                <a
+                  href="https://github.com/DanielBL01/stock-price-discovery"
+                  className="inline underline"
+                  target="_blank"
+                >
+                  github
+                </a>{" "}
+                |{" "}
+                <a href="" className="inline underline">
+                  website
+                </a>
+              </p>
+              <p className="text-sm mt-2 ml-5">
+                A web app to efficiently predict the change of stock prices by
+                providing real-time processed and labeled news data.
+              </p>
+              <p className="text-sm mt-2 ml-5">
+                Built front end in TypeScript, React utilizing server-sent
+                events (SSE) for real-time data.
+              </p>
+              <p className="text-sm mt-2 ml-5">
+                Developed microservices backend using Java, Spring which
+                includes a data scraping service, real-time data processing
+                service using Apache Kafka and a service for RESTful APIs,
+                persisting data on PostgreSQL and deployed using Docker.
+              </p>
+            </div>
+            <div className="mt-2">
+              <p className="text-base">danielbl</p>
+              <p className="text-sm">
+                <a
+                  href="https://github.com/DanielBL01/danielbl"
+                  className="inline underline"
+                  target="_blank"
+                >
+                  github
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://danielbl.com/"
+                  className="inline underline"
+                  target="_blank"
+                >
+                  website
+                </a>
+              </p>
+              <p className="text-sm mt-2 ml-5">
+                A personal web app built with TypeScript, React, Firebase,
+                Tailwind CSS and Vite.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-2">
           <p className="text-lg">Education</p>
           <hr className="mt-1" />
           <div className="ml-2">
