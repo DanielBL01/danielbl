@@ -27,6 +27,7 @@ function BlogPost(): JSX.Element {
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
+        // Don't forget to change collection from "test" to "blogs" in production push
         const docRef = doc(db, "blogs", blogID);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {

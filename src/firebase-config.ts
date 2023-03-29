@@ -22,6 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+// Don't forget to change collection from "test" to "blogs" in production push
 const collectionRef = collection(db, "blogs");
 const storage = getStorage(app);
 const analytics = getAnalytics(app);
