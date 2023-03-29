@@ -23,24 +23,27 @@ function App() {
   }
 
   return (
-    <div className="w-screen min-h-screen bg-white dark:bg-gray-700">
-      <BrowserRouter>
-        <div className="w-1/2 mx-auto">
-          <NavBar darkMode={darkMode} onClick={handleToggle} />
-        </div>
-        <div className="w-3/5 mx-auto">
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:blogID" element={<BlogPost />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+    <div>
+      <div className="w-screen min-h-screen bg-white dark:bg-gray-700">
+        <BrowserRouter>
+          <div className="w-1/2 mx-auto">
+            <NavBar darkMode={darkMode} onClick={handleToggle} />
           </div>
-        </div>
-      </BrowserRouter>
+          <div className="w-3/5 mx-auto">
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:blogID" element={<BlogPost />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            </div>
+          </div>
+        </BrowserRouter>
+      </div>
+      <br />
     </div>
   );
 }
