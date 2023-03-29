@@ -23,8 +23,8 @@ function App() {
   }
 
   return (
-    <div>
-      <div className="w-screen min-h-screen bg-white dark:bg-gray-700">
+    <div className="w-screen min-h-screen bg-white dark:bg-gray-700">
+      <div>
         <BrowserRouter>
           <div className="w-1/2 mx-auto">
             <NavBar darkMode={darkMode} onClick={handleToggle} />
