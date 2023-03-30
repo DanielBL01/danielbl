@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className="w-screen min-h-screen bg-white dark:bg-gray-700">
+    <div className="w-screen min-h-screen">
       <div>
         <BrowserRouter>
           <div className="w-1/2 mx-auto">

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-white dark:bg-gray-700
+}
+
 p {
   @apply text-gray-700 dark:text-white;
 }
