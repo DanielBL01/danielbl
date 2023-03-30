@@ -190,6 +190,28 @@ function Resume(): JSX.Element {
           </div>
         </div>
       </div>
+      <div className="mt-2">
+        <p className="text-lg font-light">Skills & Interests</p>
+        <hr className="mt-1" />
+        <div className="ml-2">
+          <div className="mt-2">
+            <p className="text-sm font-light">
+              <span className="font-medium">Languages & Tools</span>: Java,
+              Python, TypeScript, AWS, Spring, Django, React, PostgreSQL,
+              MongoDB, Docker
+            </p>
+            <p className="text-sm font-light mt-2">
+              <span className="font-medium">Want to Learn / Explore</span>: Go,
+              Kubernetes, Apache Kafka, Apache Spark
+            </p>
+            <p className="text-sm font-light mt-2">
+              <span className="font-medium">Topics</span>: Full-stack,
+              Back-end/Infrastructure, Microservices, Big Data, Distributed
+              Computing
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
