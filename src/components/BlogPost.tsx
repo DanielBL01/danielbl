@@ -57,7 +57,7 @@ function BlogPost(): JSX.Element {
         {moment(blog.date.toDate()).format("MMMM Do YYYY")}
       </p>
       <p className="inline font-extralight"> • {blog.duration} min read</p>
-      <hr className="mt-2 mb-2" />
+      <hr className="mt-2 mb-5" />
       {ReactHtmlParser(DOMPurify.sanitize(blog.content))}
     </div>
   );
