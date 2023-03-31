@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+import CertificateModal from "./CertificateModal";
 
 function Resume(): JSX.Element {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [certificateImage, setCertificateImage] = useState("");
+
+  function openModal(): void {
+    setIsOpen(true);
+  }
+
+  function setImage(url: string): void {
+    setCertificateImage(url);
+  }
+
+  function modalOnClick(url: string): void {
+    setImage(url);
+    openModal();
+  }
+
+  function closeModal(): void {
+    setIsOpen(false);
+  }
+
   return (
     <div>
       <p>
@@ -188,6 +210,47 @@ function Resume(): JSX.Element {
               Real-Time Systems
             </p>
           </div>
+        </div>
+      </div>
+      <div className="mt-2">
+        <p className="text-lg font-light">Certifications</p>
+        <hr className="mt-1" />
+        <div className="ml-2">
+          <div className="mt-2">
+            <p className="text-sm font-medium">
+              Java Multithreading, Concurrency & Performance Optimization{" "}
+              <span className="text-sm font-light">
+                (
+                <button className="hover:underline" onClick={() => modalOnClick("testing1")}>
+                  view
+                </button>
+                )
+              </span>
+            </p>
+            <p className="text-sm italic font-extralight">
+              Udemy, Instructor Michael Pogrebinsky
+            </p>
+          </div>
+          <div className="mt-2">
+            <p className="text-sm font-medium">
+              Distributed Systems & Cloud Computing with Java{" "}
+              <span className="text-sm font-light">
+                (
+                <button className="hover:underline" onClick={() => modalOnClick("testing2")}>
+                  view
+                </button>
+                )
+              </span>
+            </p>
+            <p className="text-sm italic font-extralight">
+              Udemy, Instructor Michael Pogrebinsky
+            </p>
+          </div>
+          <CertificateModal
+            certificateImage={certificateImage}
+            modalIsOpen={modalIsOpen}
+            closeModal={closeModal}
+          />
         </div>
       </div>
       <div className="mt-2">
