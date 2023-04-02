@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import CertificateModal from "./CertificateModal";
 
+Modal.setAppElement('#root');
+
 function Resume(): JSX.Element {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [certificateImage, setCertificateImage] = useState("");
