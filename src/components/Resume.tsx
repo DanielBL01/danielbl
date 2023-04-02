@@ -25,14 +25,7 @@ function Resume(): JSX.Element {
 
   return (
     <div>
-      <p>
-        My more elaborate and up-to-date web resume. You can also download my
-        resume.pdf{" "}
-        <a className="underline" href="">
-          here
-        </a>
-        .
-      </p>
+      <p>My more elaborate and up-to-date web resume.</p>
       <div className="mt-2">
         <p className="text-lg font-light">Experience</p>
         <hr className="mt-1" />
@@ -142,10 +135,6 @@ function Resume(): JSX.Element {
                 target="_blank"
               >
                 github
-              </a>{" "}
-              |{" "}
-              <a href="" className="inline underline">
-                website
               </a>
             </p>
             <p className="text-sm mt-2 ml-5 font-light">
