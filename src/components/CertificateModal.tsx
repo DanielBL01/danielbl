@@ -9,10 +9,33 @@ interface Props {
 
 function CertificateModal({modalIsOpen, closeModal, certificateImage}: Props) {
     return (
-        <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={{
+          overlay: {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.75)'
+          },
+          content: {
+            position: 'absolute',
+            top: '40px',
+            left: '40px',
+            right: '40px',
+            bottom: '40px',
+            border: '1px solid #ccc',
+            background: '#F9FAFB dark:#4a5568',
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            borderRadius: '4px',
+            outline: 'none',
+            padding: '20px'
+          }
+        }} className="bg-gray-50 dark:bg-gray-700">
             <div className="text-right">
               <button
-                className="text-sm font-light hover:underline"
+                className="text-sm font-light hover:underline mb-5"
                 onClick={closeModal}
               >
                 close
