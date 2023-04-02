@@ -221,22 +221,14 @@ function Resume(): JSX.Element {
               Java Multithreading, Concurrency & Performance Optimization{" "}
               <span className="text-sm font-light">
                 (
-                <button className="hover:underline" onClick={() => modalOnClick("testing1")}>
-                  view
-                </button>
-                )
-              </span>
-            </p>
-            <p className="text-sm italic font-extralight">
-              Udemy, Instructor Michael Pogrebinsky
-            </p>
-          </div>
-          <div className="mt-2">
-            <p className="text-sm font-medium">
-              Distributed Systems & Cloud Computing with Java{" "}
-              <span className="text-sm font-light">
-                (
-                <button className="hover:underline" onClick={() => modalOnClick("testing2")}>
+                <button
+                  className="italic hover:underline"
+                  onClick={() =>
+                    modalOnClick(
+                      "https://firebasestorage.googleapis.com/v0/b/danielbl-f6569.appspot.com/o/images%2FJava%20Multithreading%2C%20Concurrency%20%26%20Performance%20Optimization.jpg?alt=media&token=d68f6aaf-10b3-4746-8f98-e4937850fdfe"
+                    )
+                  }
+                >
                   view
                 </button>
                 )

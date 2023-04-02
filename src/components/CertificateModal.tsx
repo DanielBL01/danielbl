@@ -18,7 +18,7 @@ function CertificateModal({modalIsOpen, closeModal, certificateImage}: Props) {
                 close
               </button>
             </div>
-            <div>{certificateImage}</div>
+            <div><img src={certificateImage} alt="certificate" /></div>
           </Modal>
     )
 }
