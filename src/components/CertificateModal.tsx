@@ -25,14 +25,14 @@ function CertificateModal({modalIsOpen, closeModal, certificateImage}: Props) {
             right: '40px',
             bottom: '40px',
             border: '1px solid #ccc',
-            background: '#F9FAFB dark:#4a5568',
+            background: '#D2D6DC dark:#4a5568',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '4px',
+            borderRadius: '24px',
             outline: 'none',
-            padding: '20px'
+            padding: '20px',
           }
-        }} className="bg-gray-50 dark:bg-gray-700">
+        }} className="bg-gray-300 dark:bg-gray-700 shadow-lg">
             <div className="text-right">
               <button
                 className="text-sm font-light hover:underline mb-5"
