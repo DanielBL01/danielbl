@@ -29,7 +29,7 @@ function App() {
           <div className="w-1/2 mx-auto">
             <NavBar darkMode={darkMode} onClick={handleToggle} />
           </div>
-          <div className="w-3/5 mx-auto">
+          <div className="w-5/6 sm:w-4/5 md:w-4/5 lg:w-3/5 mx-auto">
             <div>
               <Routes>
                 <Route path="/" element={<Home />} />
