@@ -93,8 +93,7 @@ function Resume(): JSX.Element {
               Software Engineer Intern, Etobicoke, ON, Canada • remote
             </p>
             <p className="text-sm italic font-extralight">
-              Jul 2020 - Aug 2020 & Jan 2021 - Apr 2021 (24-weeks, two
-              internships)
+              Jan 2021 - Apr 2021 (16-weeks)
             </p>
             <p className="text-sm mt-2 ml-5 font-light">
               Launched{" "}
@@ -115,6 +114,15 @@ function Resume(): JSX.Element {
               Led the design and implementation of a data pipeline using Amazon
               DynamoDB streams and AWS Lambda triggers for real-time events,
               leading to increased visibility.
+            </p>
+          </div>
+          <div className="mt-2">
+            <p className="text-base font-medium">Lumenix</p>
+            <p className="text-sm italic font-extralight">
+              Software Engineer Intern, Etobicoke, ON, Canada • remote
+            </p>
+            <p className="text-sm italic font-extralight">
+              Jul 2020 - Aug 2020 (8-weeks)
             </p>
             <p className="text-sm mt-2 ml-5 font-light">
               Developed a pub/sub messaging system in Python to connect{" "}
