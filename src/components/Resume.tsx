@@ -2,11 +2,26 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import CertificateModal from "./CertificateModal";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
+
+interface Option {
+  label: string;
+  value: number;
+}
+
+const displayOptions: Option[] = [
+  { label: "All Sections", value: 0 },
+  { label: "Experience", value: 1 },
+  { label: "Projects", value: 2 },
+  { label: "Education", value: 3 },
+  { label: "Certifications", value: 4 },
+  { label: "Skills & Interests", value: 5 },
+];
 
 function Resume(): JSX.Element {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [certificateImage, setCertificateImage] = useState("");
+  const [displayOption, setDisplayOption] = useState<Option>(displayOptions[0]);
 
   function openModal(): void {
     setIsOpen(true);
@@ -25,10 +40,28 @@ function Resume(): JSX.Element {
     setIsOpen(false);
   }
 
+  const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newOption = displayOptions.find(
+      (option) => option.value === parseInt(e.target.value)
+    );
+    if (newOption) {
+      setDisplayOption(newOption);
+    }
+  };
+
   return (
     <div>
       <p>My more elaborate and up-to-date web resume.</p>
       <div className="mt-2">
+        <select className="border rounded bg-white dark:bg-gray-700" value={displayOption.value} onChange={handleOptionChange}>
+          {displayOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 1 ? "" : "hidden"}`}>
         <p className="text-lg font-light">Experience</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -132,7 +165,7 @@ function Resume(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="mt-2">
+      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 2 ? "" : "hidden"}`}>
         <p className="text-lg font-light">Projects</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -190,7 +223,7 @@ function Resume(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="mt-2">
+      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 3 ? "" : "hidden"}`}>
         <p className="text-lg font-light">Education</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -211,7 +244,7 @@ function Resume(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className="mt-2">
+      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 4 ? "" : "hidden"}`}>
         <p className="text-lg font-light">Certifications</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -244,7 +277,7 @@ function Resume(): JSX.Element {
           />
         </div>
       </div>
-      <div className="mt-2">
+      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 5 ? "" : "hidden"}`}>
         <p className="text-lg font-light">Skills & Interests</p>
         <hr className="mt-1" />
         <div className="ml-2">

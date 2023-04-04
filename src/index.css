@@ -33,3 +33,11 @@ div {
 input {
   @apply text-gray-700 dark:text-white;
 }
+
+select {
+  @apply text-gray-700 dark:text-white;
+}
+
+option {
+  @apply text-gray-700 dark:text-white;
+}
