@@ -65,8 +65,8 @@ function Home(): JSX.Element {
         <br />
         <p className="text-2xl mb-2">Now</p>
         <p>
-          I'm currently doing my final internship as a software engineer intern
-          at{" "}
+          I'm currently taking a break term (no co op or school) and will be
+          doing my final internship as a software engineer intern at{" "}
           <a
             className="hover:font-semibold"
             href="https://www.databricks.com/"
@@ -74,7 +74,7 @@ function Home(): JSX.Element {
           >
             Databricks
           </a>{" "}
-          in San Francisco.
+          in San Francisco next term in Summer 2023.
         </p>
         <hr className="mt-2 mb-4" />
         <div>
