@@ -53,7 +53,11 @@ function Resume(): JSX.Element {
     <div>
       <p>My more elaborate and up-to-date web resume.</p>
       <div className="mt-2">
-        <select className="border rounded bg-white dark:bg-gray-700" value={displayOption.value} onChange={handleOptionChange}>
+        <select
+          className="border rounded bg-white dark:bg-gray-700"
+          value={displayOption.value}
+          onChange={handleOptionChange}
+        >
           {displayOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -61,7 +65,11 @@ function Resume(): JSX.Element {
           ))}
         </select>
       </div>
-      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 1 ? "" : "hidden"}`}>
+      <div
+        className={`mt-2 ${
+          displayOption.value == 0 || displayOption.value == 1 ? "" : "hidden"
+        }`}
+      >
         <p className="text-lg font-light">Experience</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -165,7 +173,11 @@ function Resume(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 2 ? "" : "hidden"}`}>
+      <div
+        className={`mt-2 ${
+          displayOption.value == 0 || displayOption.value == 2 ? "" : "hidden"
+        }`}
+      >
         <p className="text-lg font-light">Projects</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -221,9 +233,36 @@ function Resume(): JSX.Element {
               CSS, Vite and Firebase (Firestore Database, Storage, Hosting).
             </p>
           </div>
+          <div className="mt-2">
+            <p className="text-base font-medium">Lets Chat</p>
+            <p className="text-sm">
+              <a
+                href="https://github.com/DanielBL01/lets-chat-backend"
+                className="inline underline"
+                target="_blank"
+              >
+                github
+              </a>
+            </p>
+            <p className="text-sm mt-2 ml-5 font-light">
+              A full-stack chat web app where users are placed in rooms to have
+              one-to-one conversations translated in real-time.
+            </p>
+            <p className="text-sm mt-2 ml-5 font-light">
+              Build using JavaScript, React on the frontend and
+              Node.js/Express.js on the backend utilizing{" "}
+              <span className="font-medium">web sockets</span> for messaging,
+              Google Cloud Platform for translation and MongoDB as a message
+              store.
+            </p>
+          </div>
         </div>
       </div>
-      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 3 ? "" : "hidden"}`}>
+      <div
+        className={`mt-2 ${
+          displayOption.value == 0 || displayOption.value == 3 ? "" : "hidden"
+        }`}
+      >
         <p className="text-lg font-light">Education</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -244,7 +283,11 @@ function Resume(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 4 ? "" : "hidden"}`}>
+      <div
+        className={`mt-2 ${
+          displayOption.value == 0 || displayOption.value == 4 ? "" : "hidden"
+        }`}
+      >
         <p className="text-lg font-light">Certifications</p>
         <hr className="mt-1" />
         <div className="ml-2">
@@ -277,7 +320,11 @@ function Resume(): JSX.Element {
           />
         </div>
       </div>
-      <div className={`mt-2 ${displayOption.value == 0 || displayOption.value == 5 ? "" : "hidden"}`}>
+      <div
+        className={`mt-2 ${
+          displayOption.value == 0 || displayOption.value == 5 ? "" : "hidden"
+        }`}
+      >
         <p className="text-lg font-light">Skills & Interests</p>
         <hr className="mt-1" />
         <div className="ml-2">
