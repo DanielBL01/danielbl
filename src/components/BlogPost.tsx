@@ -13,6 +13,7 @@ interface Blog {
   title: string;
   duration: number;
   overview: string;
+  tags: number[];
 }
 
 function BlogPost(): JSX.Element {
