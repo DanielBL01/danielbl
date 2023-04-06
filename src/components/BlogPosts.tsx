@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Timestamp } from "firebase/firestore";
+import { DocumentReference, Timestamp } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import Tags from "../Tags";
@@ -10,6 +10,7 @@ interface BlogMetaData {
   date: Timestamp;
   overview: string;
   tags: number[];
+  ref: DocumentReference;
 }
 
 function BlogPosts({
@@ -54,7 +55,7 @@ function BlogPosts({
         filteredBlogMetaData.map((blog) => (
           <ul>
             <li key={blog.id}>
-              <Link to={`/blog/${blog.id}`} className="text-xl hover:underline">
+              <Link to={`/blog/${blog.ref.id}`} className="text-xl hover:underline">
                 {blog.title}
               </Link>
               <div className="text-sm mt-2 font-extralight">

@@ -12,8 +12,6 @@ interface Blog {
   date: Timestamp;
   title: string;
   duration: number;
-  overview: string;
-  tags: number[];
 }
 
 function BlogPost(): JSX.Element {
@@ -28,8 +26,8 @@ function BlogPost(): JSX.Element {
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
-        // Don't forget to change collection from "test" to "blogs" in production push
-        const docRef = doc(db, "blogs", blogID);
+        // Don't forget to change collection from "testRef" to "blogRef" in production push
+        const docRef = doc(db, "blogRef", blogID);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const documentsData = docSnap.data() as Blog;

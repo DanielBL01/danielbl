@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import { collectionRef } from "../firebase-config";
-import { Timestamp, getDocs, query, orderBy } from "firebase/firestore";
+import { Timestamp, getDocs, query, orderBy, DocumentReference } from "firebase/firestore";
 import BlogPosts from "./BlogPosts";
 
 interface BlogMetaData {
@@ -10,6 +10,7 @@ interface BlogMetaData {
   date: Timestamp;
   overview: string;
   tags: number[];
+  ref: DocumentReference;
 }
 
 function Blog(): JSX.Element {
@@ -28,6 +29,7 @@ function Blog(): JSX.Element {
             date: data.date,
             overview: data.overview,
             tags: data.tags,
+            ref: data.ref,
           };
         });
         setBlogMetaData(documentsData);
