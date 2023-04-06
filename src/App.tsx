@@ -6,6 +6,7 @@ import BlogPost from "./components/BlogPost";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
 import Resume from "./components/Resume";
+import TagFilter from "./components/TagFilter";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:blogID" element={<BlogPost />} />
+                <Route path="/topics/:topicName" element={<TagFilter />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
             </div>

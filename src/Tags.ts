@@ -1,12 +1,11 @@
-interface Tag {
-  id: number;
-  name: string;
-}
+const TagsIdToName: Map<number, string> = new Map<number, string>();
+TagsIdToName.set(0, "oop");
+TagsIdToName.set(1, "tools");
+TagsIdToName.set(2, "miscellaneous");
 
-const Tags: Tag[] = [
-  { id: 0, name: "oop" },
-  { id: 1, name: "tools" },
-  { id: 2, name: "miscellaneous" },
-];
+const TagsNametoId: Map<string, number> = new Map<string, number>();
+TagsNametoId.set("oop", 0);
+TagsNametoId.set("tools", 1);
+TagsNametoId.set("miscellaneous", 2);
 
-export default Tags;
+export { TagsIdToName, TagsNametoId };
