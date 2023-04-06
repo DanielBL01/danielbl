@@ -55,12 +55,19 @@ function BlogPosts({
         filteredBlogMetaData.map((blog) => (
           <ul>
             <li key={blog.id}>
-              <Link to={`/blog/${blog.ref.id}`} className="text-xl hover:underline">
+              <Link
+                to={`/blog/${blog.ref.id}`}
+                className="text-xl hover:underline"
+              >
                 {blog.title}
               </Link>
               <div className="text-sm mt-2 font-extralight">
                 {blog.tags.map((tag) => (
-                  <span className="mr-2" key={Tags[tag]?.id}><button className="border rounded-3xl px-2">{Tags[tag]?.name}</button></span>
+                  <span className="mr-2" key={Tags[tag]?.id}>
+                    <button className="border rounded-3xl px-2 pointer-events-none">
+                      {Tags[tag]?.name}
+                    </button>
+                  </span>
                 ))}
               </div>
               <p className="text-sm italic mt-2 font-extralight">
