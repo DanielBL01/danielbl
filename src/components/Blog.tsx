@@ -42,7 +42,7 @@ function Blog(): JSX.Element {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Fetching and caching blogs...</div>;
   }
 
   if (error) {
