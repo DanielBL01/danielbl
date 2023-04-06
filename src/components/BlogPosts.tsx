@@ -64,7 +64,7 @@ function BlogPosts({
               <div className="text-sm mt-2 font-extralight">
                 {blog.tags.map((tag) => (
                   <span className="mr-2">
-                    <button className="border rounded-3xl px-2">
+                    <button className="border rounded-3xl px-2 hover:bg-blue-400">
                       <Link to={`/topics/${TagsIdToName.get(tag)}`}>
                         {TagsIdToName.get(tag)}
                       </Link>
