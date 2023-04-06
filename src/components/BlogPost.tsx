@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Timestamp, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import moment from "moment";
@@ -16,6 +16,7 @@ interface Blog {
 
 function BlogPost(): JSX.Element {
   const { blogID } = useParams<{ blogID: string }>();
+  const navigate = useNavigate();
 
   if (!blogID) {
     return <div>Invalid Blog ID</div>;
@@ -33,7 +34,7 @@ function BlogPost(): JSX.Element {
           const documentsData = docSnap.data() as Blog;
           setBlog(documentsData);
         } else {
-          console.log("No such document!");
+          navigate("/blog");
         }
       } catch (error) {
         console.error("Error fetching documents: ", error);

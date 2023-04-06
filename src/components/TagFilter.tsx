@@ -10,7 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import BlogPosts from "./BlogPosts";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { TagsNametoId } from "../Tags";
 import TagFilterPosts from "./TagFilterPosts";
 
@@ -26,6 +26,7 @@ interface BlogMetaData {
 function TagFilter(): JSX.Element {
   const { topicName } = useParams<{ topicName: string }>();
   const [blogMetaData, setBlogMetaData] = useState<BlogMetaData[]>([]);
+  const navigate = useNavigate();
 
   if (!topicName) {
     return <div>Invalid Topics Name.</div>;
@@ -33,6 +34,10 @@ function TagFilter(): JSX.Element {
 
   useEffect(() => {
     const fetchDocuments = async () => {
+      if (!TagsNametoId.has(topicName)) {
+        navigate("/blog");
+      }
+
       try {
         const topicId: number | undefined = TagsNametoId.get(topicName);
         if (topicId !== undefined) {
