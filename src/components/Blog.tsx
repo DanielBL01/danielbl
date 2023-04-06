@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import { collectionRef } from "../firebase-config";
 import { Timestamp, getDocs, query, orderBy, DocumentReference } from "firebase/firestore";
 import BlogPosts from "./BlogPosts";
+import { useQuery } from "react-query";
 
 interface BlogMetaData {
   id: string;
@@ -14,32 +15,39 @@ interface BlogMetaData {
 }
 
 function Blog(): JSX.Element {
-  const [blogMetaData, setBlogMetaData] = useState<BlogMetaData[]>([]);
+  const { data: blogMetaData = [], error, isLoading } = useQuery<BlogMetaData[], Error>(
+    "blogMetaData",
+    async () => {
+      const blogQueryByDate = query(collectionRef, orderBy('date', 'desc'));
+      const querySnapshot = await getDocs(blogQueryByDate);
+      const documentsData = querySnapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          title: data.title,
+          date: data.date,
+          overview: data.overview,
+          tags: data.tags,
+          ref: data.ref,
+        };
+      });
+      return documentsData;
+    },
+    {
+      onError: (error: Error) => {
+        console.error('Error fetching documents:', error);
+      },
+      refetchOnWindowFocus: false,
+    }
+  );
 
-  useEffect(() => {
-    const fetchDocuments = async () => {
-      try {
-        const blogQueryByDate = query(collectionRef, orderBy("date", "desc"));
-        const querySnapshot = await getDocs(blogQueryByDate);
-        const documentsData = querySnapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            id: doc.id,
-            title: data.title,
-            date: data.date,
-            overview: data.overview,
-            tags: data.tags,
-            ref: data.ref,
-          };
-        });
-        setBlogMetaData(documentsData);
-      } catch (error) {
-        console.error("Error fetching documents: ", error);
-      }
-    };
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-    fetchDocuments();
-  }, []);
+  if (error) {
+    return <div>Something went wrong...</div>;
+  }
 
   return (
     <div>
