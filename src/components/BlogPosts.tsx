@@ -3,6 +3,7 @@ import { DocumentReference, Timestamp } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { TagsIdToName } from "../Tags";
+import Fuse from "fuse.js";
 
 interface BlogMetaData {
   id: string;
@@ -12,6 +13,11 @@ interface BlogMetaData {
   tags: number[];
   ref: DocumentReference;
 }
+
+const searchOptions = {
+  keys: ["title", "overview"],
+  threshold: 0.3
+};
 
 function BlogPosts({
   blogMetaData,
@@ -24,11 +30,13 @@ function BlogPosts({
   >([]);
 
   useEffect(() => {
-    setFilteredBlogMetaData(
-      blogMetaData.filter((blog) =>
-        blog.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+    if (searchTerm === "") {
+      setFilteredBlogMetaData(blogMetaData);
+    } else {
+      const fuse = new Fuse(blogMetaData, searchOptions);
+      const fuzzyResult = fuse.search(searchTerm);
+      setFilteredBlogMetaData(fuzzyResult.map((result) => result.item));
+    }
   }, [blogMetaData, searchTerm]);
 
   const noTitlesMatched =
@@ -50,7 +58,7 @@ function BlogPosts({
       <hr className="mt-2" />
       <br />
       {noTitlesMatched ? (
-        <p>No titles matched your search input.</p>
+        <p>Even with fuzzy search, your search was unsuccessful... Try again!</p>
       ) : (
         filteredBlogMetaData.map((blog) => (
           <ul>
