@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import { collectionRef } from "../firebase-config";
-import { Timestamp, getDocs, query, orderBy, DocumentReference } from "firebase/firestore";
+import {
+  Timestamp,
+  getDocs,
+  query,
+  orderBy,
+  DocumentReference,
+} from "firebase/firestore";
 import BlogPosts from "./BlogPosts";
 import { useQuery } from "react-query";
 
@@ -14,11 +20,17 @@ interface BlogMetaData {
   ref: DocumentReference;
 }
 
+const ALL_BLOG_META_DATA_QUERY_KEY = "allBlogMetaData";
+
 function Blog(): JSX.Element {
-  const { data: blogMetaData = [], error, isLoading } = useQuery<BlogMetaData[], Error>(
-    "blogMetaData",
+  const {
+    data: blogMetaData = [],
+    error,
+    isLoading,
+  } = useQuery<BlogMetaData[], Error>(
+    ALL_BLOG_META_DATA_QUERY_KEY,
     async () => {
-      const blogQueryByDate = query(collectionRef, orderBy('date', 'desc'));
+      const blogQueryByDate = query(collectionRef, orderBy("date", "desc"));
       const querySnapshot = await getDocs(blogQueryByDate);
       const documentsData = querySnapshot.docs.map((doc) => {
         const data = doc.data();
@@ -35,14 +47,14 @@ function Blog(): JSX.Element {
     },
     {
       onError: (error: Error) => {
-        console.error('Error fetching documents:', error);
+        console.error("Error fetching documents:", error);
       },
       refetchOnWindowFocus: false,
     }
   );
 
   if (isLoading) {
-    return <div>Fetching and caching blogs...</div>;
+    return <div>Fetching all blogs...</div>;
   }
 
   if (error) {

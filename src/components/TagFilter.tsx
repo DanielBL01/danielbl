@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import firebase from "firebase/app";
 import { collectionRef } from "../firebase-config";
 import {
@@ -13,6 +13,7 @@ import BlogPosts from "./BlogPosts";
 import { useParams, useNavigate } from "react-router-dom";
 import { TagsNametoId } from "../Tags";
 import TagFilterPosts from "./TagFilterPosts";
+import { useQuery } from "react-query";
 
 interface BlogMetaData {
   id: string;
@@ -25,48 +26,60 @@ interface BlogMetaData {
 
 function TagFilter(): JSX.Element {
   const { topicName } = useParams<{ topicName: string }>();
-  const [blogMetaData, setBlogMetaData] = useState<BlogMetaData[]>([]);
   const navigate = useNavigate();
 
   if (!topicName) {
-    return <div>Invalid Topics Name.</div>;
+    return <div>Invalid Topic Name.</div>;
   }
 
-  useEffect(() => {
-    const fetchDocuments = async () => {
-      if (!TagsNametoId.has(topicName)) {
+  const BLOG_META_DATA_BY_TAG_QUERY_KEY = topicName;
+  const topicId: number | undefined = TagsNametoId.get(topicName);
+
+  const {
+    data: blogMetaData = [],
+    error,
+    isLoading,
+  } = useQuery<BlogMetaData[], Error>(
+    BLOG_META_DATA_BY_TAG_QUERY_KEY,
+    async () => {
+      if (topicId === undefined) {
         navigate("/blog");
       }
 
-      try {
-        const topicId: number | undefined = TagsNametoId.get(topicName);
-        if (topicId !== undefined) {
-          const blogQueryByDate = query(
-            collectionRef,
-            orderBy("date", "desc"),
-            where("tags", "array-contains", topicId)
-          );
-          const querySnapshot = await getDocs(blogQueryByDate);
-          const documentsData = querySnapshot.docs.map((doc) => {
-            const data = doc.data();
-            return {
-              id: doc.id,
-              title: data.title,
-              date: data.date,
-              overview: data.overview,
-              tags: data.tags,
-              ref: data.ref,
-            };
-          });
-          setBlogMetaData(documentsData);
-        }
-      } catch (error) {
-        console.error("Error fetching documents: ", error);
-      }
-    };
+      const blogQueryByDate = query(
+        collectionRef,
+        orderBy("date", "desc"),
+        where("tags", "array-contains", topicId)
+      );
+      const querySnapshot = await getDocs(blogQueryByDate);
+      const documentsData = querySnapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          title: data.title,
+          date: data.date,
+          overview: data.overview,
+          tags: data.tags,
+          ref: data.ref,
+        };
+      });
+      return documentsData;
+    },
+    {
+      onError: (error: Error) => {
+        console.error("Error fetching documents:", error);
+      },
+      refetchOnWindowFocus: false,
+    }
+  );
 
-    fetchDocuments();
-  }, []);
+  if (isLoading) {
+    return <div>Fetching blogs from topic #{topicName}...</div>;
+  }
+
+  if (error) {
+    return <div>Something went wrong...</div>;
+  }
 
   return (
     <div>
