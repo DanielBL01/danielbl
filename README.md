@@ -47,7 +47,8 @@ Vite will then build a "dist" folder for production. Since hosting is on Firebas
 firebase init
 ```
 
-In the configurations, make sure to point the public directory to the "dist" folder. Choose "yes" when configuring as a single-page-app since this is a React application. Choose "no" when prompted to overwrite the index.html file.
+In the configurations, first, you want to choose the option "Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub
+Action deploy". Then make sure to point the public directory to the "dist" folder which is the production build. Choose "yes" when configuring as a single-page-app since this is a React application. Choose "no" when prompted to overwrite the index.html file since Vite generated one for you.
 
 Finally, after the Firebase initialization is complete, run:
 
