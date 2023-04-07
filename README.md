@@ -1,93 +1,38 @@
 # Danielbl.com Portfolio Website (Revamp)
 
 ## Improvements
-- Moved JavaScripted to TypeScript for static typing (error-free before runtime).
-- Instead of the terrible way of creating blog pages manually like before, I'm now storing blog posts on Cloud Firestore. The mechanism to load blog posts is simple. I simply retrieve the metadata which includes a unique id from all the blog posts to create urls to blog pages. Each page loads the content by querying the Cloud Firestore collection using the id in its unique url.
-- Used a cloud storage (Firebase Storage) for image files instead of keeping images in a directory inside the codebase.
-- Instead of vanilla CSS, using Tailwind CSS for more robust styling and implemented Dark and Light mode
-- Instead of CRA (Create React App), using Vite which has faster build times and simpler configurations.
+- Wrote application in TypeScript rather than JavaScript for static typing (error-free before runtime which I like so much better).
+- Storing blogs on Firebase Firestore. Mechanism to retrieve blog posts is fairly simple. One collection in Firestore stores the metadata of blog posts while another collection stores the actual contents of a post. Each metadata document contains a reference field to its corresponding content document in the seperate collection. This way, caching is done for the metadata to search and view all the available posts while retrieving and rendering of the HTML, CSS and Images of a blog post is done seperately and I'm not querying for tons of HTML, Images, etc. at once.
+- Storing images in Firebase Storage for image files.
+- Instead of vanilla CSS, I chose to use Tailwind CSS instead. Especially for simple UIs, Tailwind CSS seems much cleaner with its utility classes and standards.
+- Added night and light mode.
+- Instead of CRA (Create React App), I chose Vite which has faster build times and simpler configurations.
+- Utilized fuse.js for fuzzy searching for blog posts and added tags to blog posts where the design was inspired by Github topics.
+- Using useQuery to auto cache query requests.
 
-Overall, I also wanted to use more modern / different technologies I haven't used before (TypeScript, Vite, Firebase, Tailwind CSS)
+Overall, I also wanted to use more modern static web app ("backendless") using different technologies I haven't used before (TypeScript, Vite, Firebase, Tailwind CSS)
 
-## Making a blog post
-For posting blogs to my own website, it felt awkward to have some authentication required POST API endpoint for me to add blogs. Since the Firebase Admin SDK exists, I simply have a local Python script shown below that loads the JSON private key file that prompts for things like title, content, etc. which I use to send data.
-
-```python
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-from datetime import datetime
-import bleach
-
-cred = credentials.Certificate("/path/to/private-key.json")
-firebase_admin.initialize_app(cred)
-
-db = firestore.client()
-
-options = ["blogs", "test"]
-
-def main():
-	try:
-		collectionString = ''
-
-		input_message = "Pick an option:\n"
-
-		for index, item in enumerate(options):
-			input_message += f'{index+1}) {item}\n'
-
-		input_message += 'Your choice: '
-
-		while collectionString.lower() not in options:
-			collectionString = input(input_message)
-
-		contentString = input("Enter the blog content:\n\n")
-		cleanHTMLContent = bleach.clean(
-			contentString,
-			tags=["p", "br", "img", "a"],
-			attributes=["href", "src", "alt", "class"]
-		)
-
-		durationNumber = int(input("\nEnter the duration:\n\n"))
-
-		titleString = input("\nEnter the title:\n\n")
-
-		overviewString = input("\nEnter the overview:\n\n")
-
-		data = {
-			"author": "Daniel Lee",
-			"content": cleanHTMLContent,
-			"date": firestore.SERVER_TIMESTAMP,
-			"duration": durationNumber,
-			"title": titleString,
-			"overview": overviewString,
-		}
-
-		db.collection(collectionString).add(data)
-
-		print(f"\nData added to {collectionString} collection Firestore successfully!")
-	except KeyboardInterrupt:
-		print("\n\nScript has been interrupted")
-
-if __name__ == "__main__":
-	main()
-```
+## How I post a blog
+Since I'm the only one making posts to my site, it felt overboard to make some post endpoint since that would also require some kind of authentication. Instead, I just have a local python script using the Firebase Admin SDK with a private key to send data to Firebase.
 
 ## Why blogs?
-I think making blog style content is super useful. The inspiration comes from sites like Medium. So basically, I want a place to openly share my opinions and notes about useful tips and uses of technologies and skills in software engineering for my own keepsake and for others to benefit from!
+I think blog style content is easy to consume and fun. The inspiration comes from sites like Medium. Basically, I just wanted my own public space on the internet to share my opinions, notes and tips in the form of blog posts. So this is really for my own keepsake but also for anyone who just happens to stumble upon my website! 
 
 ## Technologies
 - TypeScript
 - React
-    - React Router
 - Firebase
     - Cloud Firestore
     - Cloud Storage
 	- Firebase Hosting (deployment)
 - Tailwind CSS
 - Vite (build)
+- useful npm packages
+    - fuse.js (fuzzy search)
+    - react-router-dom (client side routing)
 
-### Cloud services
-I found that the firebase ecosystem is simple since it's basically a wrapper around Google Cloud Platform. Since all the services I need comes from Firebase (Firestore and Storage), I ended up going with Firebase Hosting since this portfolio site is backendless (no backend, makes only client-side API calls). Firebase Hosting is tailored towards static web apps like this and since all services are from Firebase, going with Firebase made things easy to manage since everything is on one platform.
+### Cloud Services (Firebase)
+I found that Firebase is pretty good for personal projects since it's easy to use as it's basically a wrapper around Google Cloud Platform. All the services I needed was in Firebase (Firestore, Storage), including Firebase hosting to deploy my production build which I found is also tailored to static web apps like this one which was enough for me to use it. Overall, having all my cloud services in one platform with the simple UI like Firebase is great.
 
 ### Deployment
 After initializing a react project with Vite and developing the web application, run:
