@@ -10,7 +10,7 @@
 - Utilized fuse.js for fuzzy searching for blog posts and added tags to blog posts where the design was inspired by Github topics.
 - Using useQuery to auto cache query requests.
 
-Overall, I also wanted to use more modern static web app ("backendless") using different technologies I haven't used before (TypeScript, Vite, Firebase, Tailwind CSS)
+Overall, I also wanted to build a more modern static web app ("backendless") using different technologies I haven't used before (TypeScript, Vite, Firebase, Tailwind CSS)
 
 ## How I post a blog
 Since I'm the only one making posts to my site, it felt overboard to make some post endpoint since that would also require some kind of authentication. Instead, I just have a local python script using the Firebase Admin SDK with a private key to send data to Firebase.
