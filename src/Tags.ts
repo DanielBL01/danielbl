@@ -1,3 +1,4 @@
+// Manually update these tables if new topics are needed. Make sure to also update post.py as well.
 const TagsIdToName: Map<number, string> = new Map<number, string>();
 TagsIdToName.set(0, "oop");
 TagsIdToName.set(1, "dev-tools");
@@ -14,7 +15,8 @@ TagsIdToName.set(11, "interviews");
 TagsIdToName.set(12, "testing");
 TagsIdToName.set(13, "cloud-infrastructure");
 TagsIdToName.set(14, "quality-assurance");
-TagsIdToName.set(15, "miscellaneous");
+TagsIdToName.set(15, "career");
+TagsIdToName.set(16, "miscellaneous");
 
 const TagsNametoId: Map<string, number> = new Map<string, number>();
 TagsNametoId.set("oop", 0);
@@ -32,6 +34,7 @@ TagsNametoId.set("interviews", 11);
 TagsNametoId.set("testing", 12);
 TagsNametoId.set("cloud-infrastructure", 13);
 TagsNametoId.set("quality-assurance", 14);
-TagsNametoId.set("miscellaneous", 15);
+TagsNametoId.set("career", 15);
+TagsNametoId.set("miscellaneous", 16);
 
 export { TagsIdToName, TagsNametoId };
