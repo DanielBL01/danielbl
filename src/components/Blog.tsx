@@ -54,7 +54,7 @@ function Blog(): JSX.Element {
   );
 
   if (isLoading) {
-    return <div>Fetching all blogs...</div>;
+    return <div>Fetching blogs...</div>;
   }
 
   if (error) {
