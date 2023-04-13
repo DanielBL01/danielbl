@@ -43,8 +43,9 @@ def create_ref_document(collection_name):
 
 def create_document(collection_name, collection_ref_name, document_ref_id, date, title):
     overview_string = input("\nEnter the overview\n\n")
-    topics = ["oop", "dev-tools", "systems-design", "data-structures-algorithms", "programming-languages", "advanced-topics", "back-end",
-              "front-end", "frameworks", "deployment", "interpersonal", "interviews", "testing", "cloud-infrastructure", "quality-assurance", "career", "miscellaneous"]
+    topics = ["oop", "dev-tools", "systems-design", "data-structures-algorithms", "java", "advanced-topics", "back-end",
+              "front-end", "frameworks", "deployment", "interpersonal", "interviews", "testing", "cloud-infrastructure", "quality-assurance",
+              "career", "go", "python", "javascript", "typescript", "miscellaneous"]
     print("\nChoose multiple topics:\n")
     print(topics)
     selected_topics = input(
