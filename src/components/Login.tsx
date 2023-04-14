@@ -29,22 +29,34 @@ function Login(props: Props): JSX.Element {
 
   return (
     <div>
-      <h2>Login</h2>
+      <p className="text-2xl mb-5">View private posts</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Username..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="border border-gray-300 rounded-xl px-2 py-1 bg-white dark:bg-gray-700"
         />
+        <br />
+        <br />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Password..."
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="border border-gray-300 rounded-xl px-2 py-1 bg-white dark:bg-gray-700"
         />
-        <button type="submit">Login</button>
+        <br />
+        <br />
+        <button
+          type="submit"
+          className="border border-gray-300 rounded-xl px-2 py-1"
+        >
+          LOGIN
+        </button>
       </form>
+      <br />
       {error && <p>{error}</p>}
     </div>
   );
