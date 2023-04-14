@@ -1,6 +1,6 @@
 # Danielbl.com Portfolio Website (Revamp)
 
-## Improvements
+## Improvements in Revamp
 - Wrote application in TypeScript rather than JavaScript for static typing (error-free before runtime which I like so much better).
 - Storing blogs on Firebase Firestore. Mechanism to retrieve blog posts is fairly simple. One collection in Firestore stores the metadata of blog posts while another collection stores the actual contents of a post. Each metadata document contains a reference field to its corresponding content document in the seperate collection. This way, caching is done for the metadata to search and view all the available posts while retrieving and rendering of the HTML, CSS and Images of a blog post is done seperately and I'm not querying for tons of HTML, Images, etc. at once.
 - Storing images in Firebase Storage for image files.
@@ -11,6 +11,9 @@
 - Using useQuery to auto cache query requests.
 
 Overall, I also wanted to build a more modern static web app ("backendless") using different technologies I haven't used before (TypeScript, Vite, Firebase, Tailwind CSS)
+
+## To Dos
+- Want to use Redux and IndexedDB in the future to scale a bit better than useQuery
 
 ## How I post a blog
 Since I'm the only one making posts to my site, it felt overboard to make some post endpoint since that would also require some kind of authentication. Instead, I just have a local python script using the Firebase Admin SDK with a private key to send data to Firebase.
