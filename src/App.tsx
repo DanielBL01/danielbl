@@ -10,7 +10,8 @@ import TagFilter from "./components/TagFilter";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
-import PrivateList from "./components/PrivateList";
+import Private from "./components/Private";
+import PrivatePost from "./components/PrivatePost";
 
 const queryClient = new QueryClient();
 
@@ -56,7 +57,16 @@ function App() {
                       path="/private"
                       element={<PrivateRoute authenticated={authenticated} />}
                     >
-                      <Route path="/private" element={<PrivateList />} />
+                      <Route path="/private" element={<Private />} />
+                    </Route>
+                    <Route
+                      path="/private/:privatePostID"
+                      element={<PrivateRoute authenticated={authenticated} />}
+                    >
+                      <Route
+                        path="/private/:privatePostID"
+                        element={<PrivatePost />}
+                      />
                     </Route>
                     <Route path="*" element={<Navigate to="/" />} />
                   </Routes>
