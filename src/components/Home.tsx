@@ -62,20 +62,6 @@ function Home(): JSX.Element {
           rapidly developing applications to production and at larger companies,
           extending more established codebases.
         </p>
-        <br />
-        <p className="text-2xl mb-2">Now</p>
-        <p>
-          I'm currently taking a break term (no co op or school) and will be
-          doing my final internship as a software engineer intern at{" "}
-          <a
-            className="hover:font-semibold"
-            href="https://www.databricks.com/"
-            target="_blank"
-          >
-            Databricks
-          </a>{" "}
-          in San Francisco next term in Summer 2023.
-        </p>
         <hr className="mt-2 mb-4" />
         <div>
           <BsMailbox className="inline mr-2" />
