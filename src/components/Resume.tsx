@@ -74,17 +74,6 @@ function Resume(): JSX.Element {
         <hr className="mt-1" />
         <div className="ml-2">
           <div className="mt-2">
-            <p className="text-base font-medium">Databricks</p>
-            <p className="text-sm italic font-extralight">
-              Incoming Software Engineer Intern, San Francisco, CA, USA •
-              on-site
-            </p>
-            <p className="text-sm italic font-extralight">
-              May 2023 - August 2023 (12-weeks)
-            </p>
-            <p className="text-sm mt-2 ml-5 font-light">Summer 2023.</p>
-          </div>
-          <div className="mt-2">
             <p className="text-base font-medium">Pepperdata</p>
             <p className="text-sm italic font-extralight">
               Backend Developer Intern, Toronto, ON, Canada • remote
