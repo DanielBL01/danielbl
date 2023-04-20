@@ -20,12 +20,21 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 
+interface CustomWindow extends Window {
+  FIREBASE_APPCHECK_DEBUG_TOKEN: boolean;
+}
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+declare const self: CustomWindow;
+
+// Make sure to comment out debug provider in production
+// self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+
 const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
-  isTokenAutoRefreshEnabled: true
+  isTokenAutoRefreshEnabled: true,
 });
 
 const db = getFirestore(app);

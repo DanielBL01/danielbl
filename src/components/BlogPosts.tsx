@@ -51,7 +51,7 @@ function BlogPosts({
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className={
-            "border border-gray-300 p-2 rounded-xl bg-white dark:bg-gray-700"
+            "border border-gray-300 p-2 rounded-xl bg-white dark:bg-gray-700 w-full sm:w-3/4 md:w-1/2 lg:w-1/2 mx-auto"
           }
         />
       </div>
