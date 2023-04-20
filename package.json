@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/dompurify": "^3.0.0",
     "@types/react-html-parser": "^2.0.2",
     "dompurify": "^3.0.1",
