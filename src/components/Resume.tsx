@@ -79,7 +79,7 @@ function Resume(): JSX.Element {
               Distributed Systems Developer Intern, Toronto, ON, Canada • remote
             </p>
             <p className="text-sm italic font-extralight">
-              May 2022 - Aug 2022 (14-weeks)
+              May 2023 - Aug 2023 (14-weeks)
             </p>
             <p className="text-sm mt-2 ml-5 font-light">Summer 2023.</p>
           </div>
