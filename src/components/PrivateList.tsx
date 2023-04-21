@@ -50,6 +50,7 @@ function PrivateList({
         />
       </div>
       <hr className="mt-2" />
+      <br />
       {noTitlesMatched ? (
         <p>
           Even with fuzzy search, your search was unsuccessful... Try again!
